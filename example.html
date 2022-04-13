@@ -1,14 +1,18 @@
 ...       
  <div class="container">
-            <div class="row">
-                <!-- LEFT-SIDEBAR -->
-                <div id="left-sidebar">
-                    <div class="sidebar-data">
-                    {% cache 3600, "left-sidebar", request.user.username, using="cacheAliasName" %}
-                        {% include "for_inclusion/left_menu.html" %}
-                    {% endcache %}
-                    </div>
-                </div><!-- /.left-sidebar -->
-                <!-- MAIN-CONTENT -->
-                <div id="content">
+     <div class="row">
+         <!-- LEFT-SIDEBAR -->
+         <div id="left-sidebar">
+             <div class="sidebar-data">
+                 {% cache 3600, "left-sidebar", request.user.username, using="cacheAliasName" %}
+                     {% include "for_inclusion/left_menu.html" %}
+                 {% endcache %}
+             </div>
+         </div><!-- /.left-sidebar -->
+         <!-- MAIN-CONTENT -->
+         <div id="content">
+             ...
+         </div><!-- /.main-content -->
+     </div>
+ </div>
 ...

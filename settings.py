@@ -1,4 +1,3 @@
-# either
 TEMPLATES = [
     {
         'NAME': 'jinja2',
@@ -16,6 +15,3 @@ TEMPLATES = [
         }
     }
 ]
-
-# or
-env = Environment(extensions=["path_to_extensions.TemplateCacheExtension"], **options)

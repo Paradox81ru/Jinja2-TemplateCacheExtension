@@ -1,19 +1,19 @@
 # Jinja2-TemplateCacheExtension
 
-## Описание
-**[TemplateCacheExtension](jinja2_extension.py )** - расширение для Jinja2, кэширование фрагментов шаблона в Django. Добавляет в шаблонизатор Jinja2 тэг *{% cache %} {% endcache %}* по функционалу максимально напоминающий одноименный тэг родного шаболнизатора Django.
+## Description
+**[TemplateCacheExtension](jinja2_extension.py )** - extension for Jinja2, caching template fragments in Django. Adds a tag to the Jinja2 template engine *{% cache %} {% endcache %}* in terms of functionality, it resembles the tag of the same name of the native Django template engine as much as possible.
 
-## Установка
-Для глобальной установки расширения в шаблонизатор требуется подключить его в файле настроек "[settings.py](settings.py)". Либо это расширение можно подключить в экземпляр окружения Jinja2: 
+## Installation
+To install the extension globally in the template engine, you need to connect it in the settings file "[settings.py](settings.py)". Or this extension can be connected to an instance of the Jinja2 environment: 
 `env = Environment(extensions=["path_to_extensions.TemplateCacheExtension"], \**options)`
 
-## Использование
-Для кэширования фрагмента требуется заключить его в тэг *cache* как показано в фале [example.html](example.html).
+## Using
+To cache a fragment, you need to enclose it in the tag *cache* as shown in the file [example.html](example.html).
 ```
 {% cache 3600, "left-sidebar", request.user.username, using="cacheAliasName" %}
     {% include "for_inclusion/left_menu.html" %}
 {% endcache %}
 ```
-Первым позиционным параметром указывается время жизни кэша, в данном случае это *3600*. Следующим позиционным параметром определяется уникальное имя кэшируемого фрагмента, в нашем примере это "*left-sidebar*" . Далее идет ряд необязательны позиционных параметров характеризующие данный кэш, например в нашем случае это только имя пользователя *request.user.username*, которое определят что для каждого авторизованного пользователя кэшируемый фрагмент будет свой. Последним идёт необязательный именованный параметр *using* через который можно установить алиас экземпляра кэша, который надо использовать для процесса кэширования фрагмента. По умолчанию этот параметр имеет значение '*default*'
+The first positional parameter specifies the cache lifetime, in this case it is *3600*. The following positional parameter defines the unique name of the cached fragment, in our example it is "*left-sidebar*". Next comes a number of optional positional parameters characterizing this cache, for example, in our case it is only the user name *request.user.username*, which will determine that for each authorized user the cached fragment will be its own. Last comes the optional named parameter *using* through which you can set the alias of the cache instance to be used for the fragment caching process. By default, this parameter has the value '*default*'.
 
-Более подробно и наглядно узнать о расширении для Jinja2, кэширование фрагментов шаблона в Django, его установке и использовании, можно на моём сайте "[Парадокс-Портал/Расширение для jinja2, кэширование фрагментов шаблона в Django](http://www.paradox-portal.ru/blog/article/8-rasshirenie_dlya_jinja2_keshirovanie_fragmentov_shablona_v_django)"
+To learn more about the extension for Jinja2, caching of template fragments in Django, its installation and use, you can visit my website "[Парадокс-Портал/Расширение для jinja2, кэширование фрагментов шаблона в Django](http://www.paradox-portal.ru/blog/article/8-rasshirenie_dlya_jinja2_keshirovanie_fragmentov_shablona_v_django)"
